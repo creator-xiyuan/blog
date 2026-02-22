@@ -2,6 +2,10 @@
 
 基于 [Hugo](https://gohugo.io/) + [PaperMod](https://github.com/adityatelange/hugo-PaperMod) 的静态博客，参考：[我是如何建立自己的个人博客的？](https://blog.dejavu.moe/posts/how-i-built-my-personal-blog/)
 
+### 生成原理（简要）
+
+本站是 **静态站点**：无数据库、无后台，页面在 **构建时** 一次性生成。Hugo 读取 `config.yml`、`content/` 下的 Markdown（含 front matter 元数据）以及主题 `themes/PaperMod`，在本地或 CI 中执行 `hugo`，将内容渲染成完整 HTML，并输出到 `public/`。部署时只需把 `public/` 里的静态文件交给 CDN（如 Cloudflare Pages），用户访问时直接返回这些文件。**baseURL** 必须与最终访问地址一致，否则资源路径会错乱、样式失效。
+
 ## 环境准备
 
 - 安装 [Hugo](https://gohugo.io/installation/)（建议 extended 版）
@@ -42,9 +46,13 @@ hugo server -D
 ```bash
 # 使用 Page Bundle，便于同目录放图片
 hugo new posts/你的文章名/index.md
+
+# 放在某一层级（章节）下，例如「随笔」「技术」
+hugo new posts/随笔/你的文章名/index.md
+hugo new posts/技术/你的文章名/index.md
 ```
 
-编辑 `content/posts/你的文章名/index.md`，写完后把 front matter 里的 `draft: false` 保留或改为 `false` 即可参与构建。
+编辑对应路径下的 `index.md`，写完后把 front matter 里的 `draft: false` 保留或改为 `false` 即可参与构建。**文章层级**：站点已开启全局目录（TOC），每篇文章会按标题（H2、H3…）显示层级；导航栏的「随笔」「技术」对应 `content/posts/随笔/`、`content/posts/技术/`，新章节可在 `content/posts/` 下新建目录并加 `_index.md`，再在 `config.yml` 的 `menu.main` 里增加一项。
 
 ## 构建静态站
 
@@ -93,7 +101,9 @@ hugo
 .
 ├── archetypes/    # 文章模板（如 posts.md）
 ├── content/       # 文章与页面
-│   ├── posts/     # 博客文章
+│   ├── posts/     # 博客文章（其下 随笔/、技术/ 等为章节层级）
+│   │   ├── 随笔/
+│   │   └── 技术/
 │   └── archives/  # 归档页
 ├── layouts/       # 自定义布局（覆盖主题）
 ├── static/        # 静态资源（如图片、favicon）

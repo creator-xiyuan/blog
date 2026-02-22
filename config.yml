@@ -59,8 +59,8 @@ params:
   comments: false
   hidemeta: false
   hideSummary: false
-  showtoc: false
-  tocopen: false
+  showtoc: true
+  tocopen: true
 
   assets:
     favicon: ''
@@ -123,13 +123,21 @@ params:
     minMatchCharLength: 0
     keys: ['title', 'permalink', 'summary', 'content']
 
-# 顶部导航栏
+# 顶部导航栏（可按 section 层级组织：随笔、技术 等）
 menu:
   main:
     - identifier: '首页'
       name: '首页'
       url: /
       weight: 1
+    - identifier: '随笔'
+      name: '随笔'
+      url: /posts/随笔/
+      weight: 5
+    - identifier: '技术'
+      name: '技术'
+      url: /posts/技术/
+      weight: 8
     - identifier: '分类'
       name: '分类'
       url: /categories/
