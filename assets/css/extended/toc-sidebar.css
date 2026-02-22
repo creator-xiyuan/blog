@@ -3,11 +3,13 @@
   display: flex;
   gap: 2rem;
   align-items: flex-start;
+  max-width: 100%;
 }
 
 .post-with-toc-sidebar .post-single {
   flex: 1;
   min-width: 0;
+  order: 1;
 }
 
 .toc-sidebar {
@@ -15,6 +17,7 @@
   width: 240px;
   position: sticky;
   top: 1rem;
+  order: 2;
 }
 
 .toc-sidebar .toc {
@@ -23,8 +26,6 @@
 }
 
 .toc-sidebar .toc details {
-  border: 1px solid var(--border);
-  border-radius: 6px;
   padding: 1rem 1rem 0.5rem;
   background: var(--entry);
 }
