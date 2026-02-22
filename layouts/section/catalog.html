@@ -45,6 +45,14 @@
     {{- end }}
   </details>
   {{- end }}
+  {{- range $posts.RegularPages }}
+  <div class="catalog-standalone">
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+    {{- if not (.Param "hideMeta") }}
+    <span class="catalog-meta"> — {{ .Date.Format "2006-01-02" }}</span>
+    {{- end }}
+  </div>
+  {{- end }}
   {{- end }}
 </div>
 
@@ -58,6 +66,8 @@
 .catalog-posts { list-style: none; padding-left: 1.25rem; margin: 0.25rem 0 0.5rem 0; }
 .catalog-entry { margin: 0.2rem 0; }
 .catalog-entry a { text-decoration: none; }
+.catalog-standalone { margin-bottom: 0.5rem; font-weight: 600; }
+.catalog-standalone a { text-decoration: none; }
 .catalog-meta { font-size: 0.85em; color: var(--secondary); }
 </style>
 {{- end }}
