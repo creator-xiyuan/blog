@@ -1,5 +1,6 @@
-# 起始 URL（部署后换成你自己的域名或 xxx.pages.dev）
-baseURL: 'https://creator-xiyuan.github.io/blog/'
+# 起始 URL（必须与实际访问地址一致，否则样式/资源会错乱）
+# baseURL: 'https://creator-xiyuan.github.io/blog/'
+baseURL: 'https://blog-1ri.pages.dev/'
 # 网站标题
 title: '个人博客'
 # 每页显示的文章数量
