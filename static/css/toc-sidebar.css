@@ -1,4 +1,4 @@
-/* 文章页 TOC 侧边栏 */
+﻿/* 鏂囩珷椤?TOC 渚ц竟鏍?*/
 .post-with-toc-sidebar {
   display: flex;
   gap: 2rem;
@@ -12,22 +12,27 @@
   order: 1;
 }
 
+/* 鐩綍鑴辩鏂囨。娴侊紝鍥哄畾鍦ㄩ〉闈㈠彸渚э紝涓嶅啀鎸ゅ帇姝ｆ枃 */
 .toc-sidebar {
-  flex-shrink: 0;
   width: 240px;
-  position: sticky;
-  top: 1rem;
-  order: 2;
+  position: fixed;
+  right: 24px;
+  top: 84px;
+  z-index: 10;
 }
 
 .toc-sidebar .toc {
-  position: sticky;
-  top: 1rem;
+  position: static;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin-bottom: 0;
 }
 
 .toc-sidebar .toc details {
-  padding: 1rem 1rem 0.5rem;
-  background: var(--entry);
+  border: none;
+  background: transparent;
+  padding: 0;
 }
 
 .toc-sidebar .toc summary {
@@ -60,7 +65,7 @@
   color: var(--primary);
 }
 
-/* 窄屏：侧边栏移至上方 */
+/* 绐勫睆锛氫晶杈规爮绉昏嚦涓婃柟 */
 @media screen and (max-width: 900px) {
   .post-with-toc-sidebar {
     flex-direction: column-reverse;
@@ -69,6 +74,9 @@
   .toc-sidebar {
     width: 100%;
     position: static;
+    right: auto;
+    top: auto;
+    z-index: auto;
   }
 
   .toc-sidebar .toc {
