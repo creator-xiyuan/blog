@@ -1,0 +1,80 @@
+/* 文章页 TOC 侧边栏 */
+.post-with-toc-sidebar {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.post-with-toc-sidebar .post-single {
+  flex: 1;
+  min-width: 0;
+}
+
+.toc-sidebar {
+  flex-shrink: 0;
+  width: 240px;
+  position: sticky;
+  top: 1rem;
+}
+
+.toc-sidebar .toc {
+  position: sticky;
+  top: 1rem;
+}
+
+.toc-sidebar .toc details {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem 1rem 0.5rem;
+  background: var(--entry);
+}
+
+.toc-sidebar .toc summary {
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.toc-sidebar .toc .inner {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.toc-sidebar .toc ul {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+.toc-sidebar .toc li {
+  margin: 0.3rem 0;
+  font-size: 0.9em;
+}
+
+.toc-sidebar .toc a {
+  text-decoration: none;
+  color: var(--secondary);
+}
+
+.toc-sidebar .toc a:hover {
+  color: var(--primary);
+}
+
+/* 窄屏：侧边栏移至上方 */
+@media screen and (max-width: 900px) {
+  .post-with-toc-sidebar {
+    flex-direction: column-reverse;
+  }
+
+  .toc-sidebar {
+    width: 100%;
+    position: static;
+  }
+
+  .toc-sidebar .toc {
+    position: static;
+  }
+
+  .toc-sidebar .toc .inner {
+    max-height: 200px;
+  }
+}
