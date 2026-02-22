@@ -1,0 +1,175 @@
+# 起始 URL（部署后换成你自己的域名或 xxx.pages.dev）
+baseURL: 'https://creator-xiyuan.github.io/blog/'
+# 网站标题
+title: '个人博客'
+# 每页显示的文章数量
+paginate: 5
+# 主题名称
+theme: PaperMod
+# 语言代码（zh-简体中文）
+languageCode: 'zh'
+DefaultContentLanguage: 'zh'
+# 是否有 CJK 语言（中-日-韩）
+hasCJKLanguage: true
+
+# 是否生成 robots.txt
+enableRobotsTXT: true
+
+# 是否构建草稿
+buildDrafts: false
+# 是否构建未来的文章
+buildFuture: false
+# 是否构建过期的文章
+buildExpired: false
+# 是否启用 Emoji
+enableEmoji: true
+# 是否启用 Git 信息
+enableGitInfo: false
+
+# Google Analytics ID（可选）
+googleAnalytics: ''
+
+# 压缩输出静态文件
+minify:
+  disableXML: true
+  minifyOutput: true
+
+# 全局配置
+params:
+  env: production
+  title: '个人博客'
+  description: '基于 Hugo + PaperMod 的个人博客'
+
+  author: 'creator-xiyuan'
+  images: ['opengraph.webp']
+  DateFormat: '2006-01-02'
+  defaultTheme: auto
+  disableThemeToggle: false
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: false
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: false
+  tocopen: false
+
+  assets:
+    favicon: ''
+    favicon16x16: ''
+    favicon32x32: ''
+    apple_touch_icon: ''
+    safari_pinned_tab: ''
+
+  label:
+    text: '博客'
+    icon: /apple-touch-icon.png
+    iconHeight: 35
+
+  profileMode:
+    enabled: false
+    title: ExampleSite
+    subtitle: 'This is subtitle'
+    imageUrl: ''
+    imageWidth: 120
+    imageHeight: 120
+    imageTitle: my image
+    buttons:
+      - name: Posts
+        url: posts
+      - name: Tags
+        url: tags
+
+  homeInfoParams:
+    Title: "你好 👋"
+    Content: 欢迎来到我的个人博客，这里使用 Hugo + PaperMod 搭建。
+
+  socialIcons:
+    - name: github
+      url: 'https://github.com/creator-xiyuan/blog'
+
+  analytics:
+    google:
+      SiteVerificationTag: ''
+    bing:
+      SiteVerificationTag: ''
+    yandex:
+      SiteVerificationTag: ''
+
+  cover:
+    hidden: true
+    hiddenInList: true
+    hiddenInSingle: true
+
+  editPost:
+    URL: 'https://github.com/creator-xiyuan/blog/edit/main'
+    Text: '在 GitHub 上编辑'
+    appendFilePath: true
+
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ['title', 'permalink', 'summary', 'content']
+
+# 顶部导航栏
+menu:
+  main:
+    - identifier: '首页'
+      name: '首页'
+      url: /
+      weight: 1
+    - identifier: '分类'
+      name: '分类'
+      url: /categories/
+      weight: 10
+    - identifier: '标签'
+      name: '标签'
+      url: /tags/
+      weight: 20
+    - identifier: '归档'
+      name: '归档'
+      url: /archives/
+      weight: 25
+    - identifier: '仓库'
+      name: '仓库'
+      url: https://github.com/creator-xiyuan/blog
+      weight: 30
+
+# 代码高亮（Chroma）
+pygmentsUseClasses: true
+markup:
+  highlight:
+    noClasses: false
+
+# Hugo v0.141+ 已移除 privacy.twitter / services.twitter，改用 privacy.x / services.x
+privacy:
+  vimeo:
+    disabled: true
+    enableDNT: true
+    simple: true
+  x:
+    enableDNT: true
+    simple: true
+  instagram:
+    disabled: true
+    simple: true
+  youtube:
+    disabled: true
+    privacyEnhanced: true
+
+services:
+  instagram:
+    disableInlineCSS: true
+  x:
+    disableInlineCSS: true
