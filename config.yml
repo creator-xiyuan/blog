@@ -88,9 +88,10 @@ params:
       - name: Tags
         url: tags
 
+  mainSections: [posts]
   homeInfoParams:
     Title: "你好 👋"
-    Content: 欢迎来到我的个人博客，这里使用 Hugo + PaperMod 搭建。
+    Content: "欢迎来到我的个人博客"
 
   socialIcons:
     - name: github
@@ -123,37 +124,21 @@ params:
     minMatchCharLength: 0
     keys: ['title', 'permalink', 'summary', 'content']
 
-# 顶部导航栏（可按 section 层级组织：随笔、技术 等）
+# 顶部导航栏（三栏：首页、目录、仓库）
 menu:
   main:
     - identifier: '首页'
       name: '首页'
       url: /
       weight: 1
-    - identifier: '随笔'
-      name: '随笔'
-      url: /posts/随笔/
-      weight: 5
-    - identifier: '技术'
-      name: '技术'
-      url: /posts/技术/
-      weight: 8
-    - identifier: '分类'
-      name: '分类'
-      url: /categories/
+    - identifier: '目录'
+      name: '目录'
+      url: /catalog/
       weight: 10
-    - identifier: '标签'
-      name: '标签'
-      url: /tags/
-      weight: 20
-    - identifier: '归档'
-      name: '归档'
-      url: /archives/
-      weight: 25
     - identifier: '仓库'
       name: '仓库'
       url: https://github.com/creator-xiyuan/blog
-      weight: 30
+      weight: 20
 
 # 代码高亮（Chroma）
 pygmentsUseClasses: true

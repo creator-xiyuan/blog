@@ -1,0 +1,63 @@
+{{- define "main" }}
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+  {{- if .Description }}
+  <div class="post-description">{{ .Description }}</div>
+  {{- end }}
+</header>
+
+<div class="catalog-tree">
+  {{- $posts := .Site.GetPage "/posts" }}
+  {{- if $posts }}
+  {{- range $posts.Sections }}
+  <details class="catalog-section" open>
+    <summary class="catalog-section-title">
+      <span class="catalog-section-name">{{ .Title }}</span>
+      <span class="archive-count">({{ len .RegularPages }} 篇)</span>
+    </summary>
+    <ul class="catalog-posts">
+      {{- range .RegularPages }}
+      <li class="catalog-entry">
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+        {{- if not (.Param "hideMeta") }}
+        <span class="catalog-meta"> — {{ .Date.Format "2006-01-02" }}</span>
+        {{- end }}
+      </li>
+      {{- end }}
+    </ul>
+    {{- range .Sections }}
+    <details class="catalog-subsection">
+      <summary class="catalog-section-title">
+        <span class="catalog-section-name">{{ .Title }}</span>
+        <span class="archive-count">({{ len .RegularPages }} 篇)</span>
+      </summary>
+      <ul class="catalog-posts">
+        {{- range .RegularPages }}
+        <li class="catalog-entry">
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+          {{- if not (.Param "hideMeta") }}
+          <span class="catalog-meta"> — {{ .Date.Format "2006-01-02" }}</span>
+          {{- end }}
+        </li>
+        {{- end }}
+      </ul>
+    </details>
+    {{- end }}
+  </details>
+  {{- end }}
+  {{- end }}
+</div>
+
+<style>
+.catalog-tree { margin-top: 1rem; }
+.catalog-section, .catalog-subsection { margin-bottom: 0.5rem; }
+.catalog-section-title, .catalog-subsection .catalog-section-title { cursor: pointer; list-style: none; font-weight: 600; }
+.catalog-section-title::-webkit-details-marker, .catalog-subsection summary::-webkit-details-marker { display: none; }
+.catalog-section-name { margin-right: 0.25rem; }
+.archive-count { font-weight: normal; color: var(--secondary); font-size: 0.9em; }
+.catalog-posts { list-style: none; padding-left: 1.25rem; margin: 0.25rem 0 0.5rem 0; }
+.catalog-entry { margin: 0.2rem 0; }
+.catalog-entry a { text-decoration: none; }
+.catalog-meta { font-size: 0.85em; color: var(--secondary); }
+</style>
+{{- end }}
